@@ -4,6 +4,7 @@
 (add-to-list 'auto-mode-alist (cons "\\.tpl\\'" 'smarty-mode))
 (autoload 'smarty-mode "smarty-mode" "Smarty Mode" t)
 
+
 ;;エスケープシーケンスを処理する
 (autoload 'ansi-color-for-comint-mode-on "ansi-color"
           "Set `ansi-color-for-comint-mode' to t." t)
@@ -169,6 +170,21 @@
 
 (setq mumamo-background-colors nil)
 (add-to-list 'auto-mode-alist '("\\.twig$" . django-html-mumamo-mode))
-(add-to-list 'auto-mode-alist '("\\.ctp$" . django-html-mumamo-mode))
+
 
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+
+
+
+(add-to-list 'auto-mode-alist '("\\.ctp$" . php-mode))
+(add-hook 'php-mode-hook
+  '(lambda()
+     (setq tab-width 4)
+     (setq indent-tabs-mode t)
+     (setq c-basic-offset 4)
+            (c-set-offset 'case-label' 4)
+            (c-set-offset 'arglist-intro' 4)
+            (c-set-offset 'arglist-cont-nonempty' 4)
+            (c-set-offset 'arglist-close' 0)))
+   ))
