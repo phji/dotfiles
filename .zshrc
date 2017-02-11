@@ -1,5 +1,5 @@
 autoload -U compinit
-compinit
+compinit -u
 
 # 履歴
 HISTFILE=~/.zsh_history
@@ -52,6 +52,7 @@ alias math="/Applications/Mathematica.app/Contents/MacOS/MathKernel"
 export PATH=~/bin:$PATH
 export PATH=/Applications/pTeX.app/teTeX/bin:$PATH
 export PATH=/opt/local/bin:/opt/local/sbin/:$PATH
+export PATH=$PATH:/usr/local/bin/scala-2.10.4/bin
 export MANPATH=/opt/local/man:$MANPATH
 
 # VCSの情報を取得するzshの便利関数 vcs_infoを使う
@@ -70,3 +71,9 @@ precmd () {
 
 # バージョン管理されているディレクトリにいれば表示，そうでなければ非表示
 RPROMPT="%1(v|%F{green}%1v%f|)"
+export PATH="/usr/local/sbin:$PATH"
+eval "$(rbenv init -)"
+
+export PATH=$HOME/.nodebrew/current/bin:$PATH
+export PATH=$HOME/bin/sbt/bin/:$PATH
+
